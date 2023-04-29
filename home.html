@@ -32,7 +32,7 @@
         Check City's Weather and Mood Before Travelling
       </div>
       <ul>
-        <li><a href="index.html">City Weather</a></li>
+        <li><a class="linkToPage" href="index.html">City Weather</a></li>
         <li>Mood</li>
       </ul>
       <br />
@@ -51,14 +51,18 @@
       <section>
         <h2 class="title" id="change-city">Tehran</h2>
         <h3 class="newTimeStyle" id="day-time"></h3>
-        <span id="old-number">15 ℃</span>
-        <div class="furthurInformation">
-            <span id="humidity">Humidity: 20 %</span></br>
-            <span id="wind">Wind: 4 km/h</span></br>
-            <span id="description">Partly Cloudy</span>
+        <div class="card-text">
+          <span id="old-number">15</span>
+          <span><a href="#" id="celecius-degrees" class="active">℃ |</a> </span
+          ><span><a href="#" id="farenheit-degrees"> ℉</a></span>
+          <div class="furthurInformation">
+            <div id="humidity">Humidity: 20 %</div>
+            <div id="wind">Wind: 4 km/h</div>
+            <div id="description">Partly Cloudy</div>
           </div>
+        </div>
         <div class="row">
-          <div class="col-6" class="card mb-3" style="max-width: 540px;">
+          <div class="col-6" class="card mb-3" style="max-width: 540px">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -77,7 +81,7 @@
               </div>
             </div>
           </div>
-          <div class="col-6" class="card mb-3" style="max-width: 540px;">
+          <div class="col-6" class="card mb-3" style="max-width: 540px">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -99,7 +103,7 @@
         </div>
         <br />
         <div class="row">
-          <div class="card border-light mb-sm-5" style="max-width: 7rem;">
+          <div class="card border-light mb-sm-5" style="max-width: 7rem">
             <div class="card-header">Wednesday</div>
             <img src="images/emoji3.png" class="card-img-bottom" alt="..." />
             <div class="card-body">
@@ -107,7 +111,7 @@
               <i class="fi fi-br-link-alt"></i>
             </div>
           </div>
-          <div class="card border-light mb-sm-5" style="max-width: 7rem;">
+          <div class="card border-light mb-sm-5" style="max-width: 7rem">
             <div class="card-header">Tuesday</div>
             <img src="images/emoji5.png" class="card-img-bottom" alt="..." />
             <div class="card-body">
@@ -115,7 +119,7 @@
               <i class="fi fi-br-link-alt"></i>
             </div>
           </div>
-          <div class="card border-light mb-sm-5" style="max-width: 7rem;">
+          <div class="card border-light mb-sm-5" style="max-width: 7rem">
             <div class="card-header">Monday</div>
             <img src="images/emoji8.png" class="card-img-bottom" alt="..." />
             <div class="card-body">
@@ -123,7 +127,7 @@
               <i class="fi fi-br-link-alt"></i>
             </div>
           </div>
-          <div class="card border-light mb-sm-5" style="max-width: 7rem;">
+          <div class="card border-light mb-sm-5" style="max-width: 7rem">
             <div class="card-header">Sunday</div>
             <img src="images/emoji7.png" class="card-img-bottom" alt="..." />
             <div class="card-body">
@@ -131,7 +135,7 @@
               <i class="fi fi-br-link-alt"></i>
             </div>
           </div>
-          <div class="card border-light mb-sm-5" style="max-width: 7rem;">
+          <div class="card border-light mb-sm-5" style="max-width: 7rem">
             <div class="card-header">Saturday</div>
             <img src="images/emoji6.png" class="card-img-bottom" alt="..." />
             <div class="card-body">
