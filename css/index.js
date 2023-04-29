@@ -8,7 +8,7 @@ function showCityName(event) {
   axios.get(apiUrl).then(showRealInformation);
   function showRealInformation(response) {
     let temperature = document.querySelector("#old-number");
-    temperature.innerHTML = `${Math.round(response.data.main.temp)} ℃`;
+    temperature.innerHTML = `${Math.round(response.data.main.temp)}`;
     let humidity = document.querySelector("#humidity");
     humidity.innerHTML = `Humidity: ${Math.round(
       response.data.main.humidity
@@ -17,6 +17,7 @@ function showCityName(event) {
     wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
     let description = document.querySelector("#description");
     description.innerHTML = `${response.data.weather[0].description}`;
+    celeciusTemp = Math.round(response.data.main.temp);
   }
 }
 
@@ -32,10 +33,32 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let day = days[now.getDay()];
 let hour = now.getHours();
 let minute = now.getUTCMinutes();
 let newDate = document.querySelector("#day-time");
 newDate.innerHTML = `${day} ${hour}:${minute}`;
+
+function showFahrenheitTemprature(event) {
+  event.preventDefault();
+  let farenheit = (celeciusTemp * 9) / 5 + 32;
+  realCelecius.classList.remove("active");
+  realFarenheit.classList.add("active");
+  showedNumber.innerHTML = Math.round(farenheit);
+}
+function showCeleciusTemperature(event) {
+  event.preventDefault();
+  realFarenheit.classList.remove("active");
+  realCelecius.classList.add("active");
+  showedNumber.innerHTML = Math.round(celeciusTemp);
+}
+
+let realCelecius = document.querySelector("#celecius-degrees");
+let realFarenheit = document.querySelector("#farenheit-degrees");
+let showedNumber = document.querySelector("#old-number");
+let celeciusTemp = null;
+
+realCelecius.addEventListener("click", showCeleciusTemperature);
+realFarenheit.addEventListener("click", showFahrenheitTemprature);

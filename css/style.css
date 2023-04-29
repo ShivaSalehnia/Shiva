@@ -47,12 +47,12 @@ section {
   display: block;
   margin: 0 auto;
 }
-a {
+.linkToPage {
   text-decoration: none;
   font-weight: lighter;
   opacity: 0.4;
 }
-a:hover {
+.linkToPage:hover {
   color: orange;
   cursor: pointer;
   opacity: 1;
@@ -146,4 +146,12 @@ a:hover {
   font-size: medium;
   font-weight: 500;
   color: #6170fdfd;
+}
+.card-text .active {
+  color: black;
+  text-decoration: none;
+  cursor: default;
+}
+.active:hover {
+  cursor: default;
 }
