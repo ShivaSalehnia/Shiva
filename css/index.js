@@ -43,8 +43,15 @@ let days = [
 ];
 let day = days[now.getDay()];
 let hour = now.getHours();
-let minute = now.getUTCMinutes();
+let minute = now.getMinutes();
 let newDate = document.querySelector("#day-time");
+if (minute < 10) {
+  minute = `0${minute}`;
+}
+if (hour < 10) {
+  hour = `0${hour}`;
+}
+
 newDate.innerHTML = `${day} ${hour}:${minute}`;
 
 function showFahrenheitTemprature(event) {
