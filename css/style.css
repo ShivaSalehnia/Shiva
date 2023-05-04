@@ -93,15 +93,15 @@ section {
   max-width: 70px;
   padding-left: 20px;
 }
-.mb-sm-5 {
+.mb-sm-2 {
   padding: 2px;
   margin: 2px;
-  display: block;
-  margin: 0 auto;
+  margin-left: 30px;
 }
 .card-header {
   font-family: "Dosis", sans-serif;
   font-size: medium;
+  text-align: center;
 }
 .card-title-1 {
   font-family: "Dosis", sans-serif;
@@ -154,4 +154,10 @@ section {
 }
 .active:hover {
   cursor: default;
+}
+.maxDegree {
+  color: rgb(247, 172, 34);
+}
+.minDegree {
+  color: #7581f4;
 }

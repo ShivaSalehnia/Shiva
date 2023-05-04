@@ -75,3 +75,33 @@ let celeciusTemp = null;
 
 realCelecius.addEventListener("click", showCeleciusTemperature);
 realFarenheit.addEventListener("click", showFahrenheitTemprature);
+
+function displayForcast() {
+  let forcastElement = document.querySelector("#weather-forcast");
+  let forcastHTML = `<div class="row">`;
+  let days = ["Saturday", "Sunday", "Monday"];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `
+            <div class="card border-light mb-sm-2" style="max-width: 7rem">
+              <div class="card-header">${day}</div>
+              <div class="card-body">
+                <h5 class="card-title-1">
+                <span class="maxDegree">14° </span>
+                <span class="minDegree"> 8°</span>
+                </h5>
+              </div>
+              <img
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                class="card-img-bottom"
+                alt="..."
+              />
+            </div>`;
+  });
+
+  forcastHTML = forcastHTML + `</div>`;
+  forcastElement.innerHTML = forcastHTML;
+}
+
+displayForcast();
