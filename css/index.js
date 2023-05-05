@@ -6,6 +6,7 @@ function showCityName(event) {
   let apiKey = "017d56650cd168d68067850318775d43";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showRealInformation);
+
   function showRealInformation(response) {
     let temperature = document.querySelector("#old-number");
     temperature.innerHTML = `${Math.round(response.data.main.temp)}`;
@@ -24,6 +25,13 @@ function showCityName(event) {
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    getForcast(response.data.coord);
+  }
+
+  function getForcast(coordinates) {
+    let apiKey2 = "4c9b53e4f8f5eb00df5915bdca340605";
+    let apiUrl1 = `api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey2}`;
+    axios.get(`${apiUrl1}`).then(displayForcast());
   }
 }
 
@@ -103,5 +111,4 @@ function displayForcast() {
   forcastHTML = forcastHTML + `</div>`;
   forcastElement.innerHTML = forcastHTML;
 }
-
 displayForcast();
