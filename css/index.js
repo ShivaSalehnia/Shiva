@@ -103,7 +103,7 @@ function displayForcast(response) {
   let forcastElement = document.querySelector("#weather-forcast");
   let forcastHTML = `<div class="row">`;
   forecast.forEach(function (forcastDay, index) {
-    if (index > 1 && index < 7) {
+    if (index > 1 && index < 8) {
       forcastHTML =
         forcastHTML +
         `
