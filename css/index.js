@@ -29,7 +29,7 @@ function showRealInformation(response) {
 
 function getForcast(coordinates) {
   let apiKey2 = "4c9b53e4f8f5eb00df5915bdca340605";
-  let apiUrl1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey2}`;
+  let apiUrl1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey2}&units=metric`;
   axios.get(`${apiUrl1}`).then(displayForcast);
 }
 
@@ -82,29 +82,52 @@ let celeciusTemp = null;
 realCelecius.addEventListener("click", showCeleciusTemperature);
 realFarenheit.addEventListener("click", showFahrenheitTemprature);
 
+function formatDay(timestemp) {
+  let date = new Date(timestemp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForcast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forcastElement = document.querySelector("#weather-forcast");
   let forcastHTML = `<div class="row">`;
-  let days = ["Saturday", "Sunday", "Monday"];
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `
+  forecast.forEach(function (forcastDay, index) {
+    if (index > 1 && index < 7) {
+      forcastHTML =
+        forcastHTML +
+        `
             <div class="card border-light mb-sm-2" style="max-width: 7rem">
-              <div class="card-header">${day}</div>
+              <div class="card-header">${formatDay(forcastDay.dt)}</div>
               <div class="card-body">
                 <h5 class="card-title-1">
-                <span class="maxDegree">14° </span>
-                <span class="minDegree"> 8°</span>
+                <span class="maxDegree">${Math.round(
+                  forcastDay.temp.max
+                )}° </span>
+                <span class="minDegree">${Math.round(
+                  forcastDay.temp.min
+                )}°</span>
                 </h5>
               </div>
               <img
-                src="https://openweathermap.org/img/wn/10d@2x.png"
+                src="https://openweathermap.org/img/wn/${
+                  forcastDay.weather[0].icon
+                }@2x.png"
                 class="card-img-bottom"
                 alt="..."
               />
             </div>`;
+    }
   });
 
   forcastHTML = forcastHTML + `</div>`;
